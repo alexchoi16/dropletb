@@ -1,0 +1,37 @@
+application: dropletb-160702
+version: 2dasfw21342dsa
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /css
+  static_dir: static/css
+- url: /js
+  static_dir: static/js
+- url: /signup
+  script: db.main.app
+  secure: always
+- url: /login
+  script: db.main.app
+  secure: always
+- url: /forgot
+  script: db.main.app
+  secure: always
+- url: /admin.*
+  script: manage.views.app
+- url: /admin
+  script: manage.views.app
+  login: admin
+- url: /.*
+  script: db.main.app
+
+libraries:
+- name: webapp2
+  version: latest
+- name: PIL
+  version: "1.1.7"
+- name: webob
+  version: "latest"
+- name: jinja2
+  version: "latest"

@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="col-xs-12 col-md-4 col-md-offset-4">
+    <h1 class="textcen">Congratulations {{ user.email }}!</h1>
+    <p class="textcen">If you see this page, it means that you managed to log in successfully.</p>
+    <p class="textcen">Click <a href="/profile">here</a> to access your profile</p>
+</div>
+
+{% endblock %}

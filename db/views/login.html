@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="container-fluid">
+          <div id="nav">
+              <div class="navbar-header">
+                  <a class="navbar-brand" href="/">dropletB</a>
+              </div>
+              <ul class="nav navbar-nav">
+                  <li class="active"><a href="/">Home</a></li>
+                  <li><a href="#">Nearby Locations</a></li>
+
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                  <li><a href="/signup"> Sign Up</a></li>
+                  <li><a href="/login"> Login</a></li>
+              </ul>
+          </div>
+</div>
+
+<div class="container-fluid" id="gradientBG">
+  <div class="row">
+
+
+      <div class="col-md-4 col-md-offset-4">
+          <h1>Login</h1>
+
+          {% if failed %}
+
+              <strong>Login failed!</strong> Check your credentials and try again.
+
+          {% endif %}
+
+          <form class="form" action= "/login" method="POST">
+          	<label for="username">Username</label>
+          	<input class="form-control" type="text" value="{{ username }}" name="username"/>
+          	<label for="password">Password</label>
+          	<input class="form-control" type="password" name="password"/>
+          	<button type="submit" class="btn btn-default">Login</button>
+          </form>
+          <a href="/signup">Sign up</a><br>
+          <a href="/forgot">Forgot password</a>
+      </div>
+
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

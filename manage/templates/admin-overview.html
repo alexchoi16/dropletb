@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="col-xs-12 col-md-4">
+        <h3 class="textcen">Create Event</h3>
+        <form class="form textcen" action= "/admin/overview" method="POST">
+            <label>Event Title</a>
+        	<input type="text" class="form-control" name="event-title"/>
+            <label>Event Descripton</a>
+        	<input type="textbox" class="form-control" name="event-description"/>
+            <label>Event Address</a>
+        	<input type="text" class="form-control" name="event-address"/>
+            <label>Event City</a>
+        	<input type="text" class="form-control" name="event-city"/>
+            <label>Event Zip Code</a>
+        	<input type="text" class="form-control" name="event-zip_code"/>
+            <label>Event Date</a>
+        	<input type="text" class="form-control" name="event-date"/>
+            <label>Event Time</a>
+        	<input type="text" class="form-control" name="event-time"/><br>
+        	<input type="submit" class="btn btn-default" value="Create"/>
+        </form><br><br><br><br>
+        <a href="/admin/logout">logout</a>
+    </div>
+    <div class="col-xs-12 col-md-8">
+        <h3 class="textcen">List of Events</h3>
+        {% for data in results %}
+            <div style="margin:5px 10px;">
+                <img href="#" style="width:100px;height:100px;float:left;margin-right:10px">
+                <div>
+                    Event Title: {{ data.event_title }}<br>
+                    Event Description: {{ data.event_description }}<br>
+                    Event Address: {{ data.address }}<br>
+                    Event Date: {{ data.event_date }}<br>
+                    Event Time: {{ data.event_time }}<br>
+                </div>
+            </div>
+        {% endfor %}
+        <script>
+            console.log('{{ results }}');
+        </script>
+    </div>
+</div>
+{% endblock %}

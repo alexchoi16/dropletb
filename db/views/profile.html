@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="container-fluid">
+  <div id="nav">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/">dropletB</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="#">Nearby Locations</a></li>
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/signup"> Sign Up</a></li>
+            <li><a href="/login"> Login</a></li>
+        </ul>
+    </div>
+</div>
+
+    <div class="container-fluid">
+        <div class="row bgRed">
+            <div class="col-sm-3 col-sm-offset-1 ">
+                <div class="profile rounded">
+                    <form action="/profile" method="post">
+                        <label>First Name</label>
+                        <input type="text" name="first-name" class="form-control" value="{{ profile.first_name }}">
+                        <label>Last Name</label>
+                        <input type="text" name="last-name" class="form-control" value="{{ profile.last_name }}">
+                        <label>Email Address</label>
+                        <input type="text" name="email-address" class="form-control" value="{{ profile.email }}">
+                        <label>Blood Type</label>
+                        <input type="text" name="blood-type" class="form-control" value="{{ profile.blood_type }}"><br>
+                        <input type="file" name="profile_img" class="form-control"><br>
+                        <input type="submit" class="btn btn-default" value="Update">
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-6 col-sm-offset-1  col-xs-6" >
+                <div name="EvNear" class="event rounded">
+                    <h4>Events Near You</h4>
+                    {% for data in results %}
+                        <div style="margin:5px 10px;">
+                            <img href="#" style="width:100px;height:100px;float:left;margin-right:10px">
+                            <div>
+                                Event Title: {{ data.event_title }}<br>
+                                Event Description: {{ data.event_description }}<br>
+                                Event Address: {{ data.address }}<br>
+                                Event Date: {{ data.event_date }}<br>
+                                Event Time: {{ data.event_time }}<br>
+                            </div>
+                        </div>
+                    {% endfor %}    
+                </div>
+                <div name="PstEv" class="event rounded">
+                    <h4>Past Events You Have Attended</h4>
+
+                </div>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+    </div>
+
+
+
+
+{% endblock %}
